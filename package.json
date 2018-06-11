@@ -26,7 +26,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "webpack --config webpack.config.js"
+    "release": "webpack --config webpack.config.js --mode production"
   },
   "author": "",
   "license": "ISC"
