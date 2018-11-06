@@ -1,6 +1,6 @@
 const path = require('path');
 const glob = require('glob');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const Uglify = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -42,17 +42,18 @@ module.exports = {
                         }
                     }
 				]
-			},
-			{
+            },
+            {
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader']
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: ['css-loader']
+                })
             }
 		]
 	},
 	plugins: [
-        new MiniCssExtractPlugin({
-            filename: '/css/[name].css',
-        }),
+        new ExtractTextPlugin('/css/[name].css'),
         new Uglify(),
         new CleanWebpackPlugin(['dist'])
     ],
@@ -60,8 +61,9 @@ module.exports = {
         splitChunks: {
             cacheGroups: {
                 commons: {
-                    name: "common",
-                    chunks: "initial",
+                    name: 'common',
+                    test: /[\\/]node_modules[\\/]/,
+                    chunks: 'initial',
                     minChunks: 1
                 }
             }

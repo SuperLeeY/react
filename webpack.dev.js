@@ -1,6 +1,5 @@
 const path = require('path');
 const glob = require('glob');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 function entries (globPath) {
@@ -48,9 +47,6 @@ module.exports = {
 		]
 	},
 	plugins: [
-        new MiniCssExtractPlugin({
-            filename: '/css/[name].css',
-        }),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, '/src/pages/home.html'),
             filename: '/pages/home.html'

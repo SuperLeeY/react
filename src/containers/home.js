@@ -14,11 +14,11 @@ import reducer from '../reducers/home';
 //store
 const store = createStoreWithMW(reducer);
 
-// //css
+//css
 import '../css/common';
 import '../css/home';
 
-// //component
+//component
 import Home from '../components/home';
 
 render(
