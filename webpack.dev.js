@@ -26,19 +26,10 @@ module.exports = {
 	},
 	module: {
 		rules: [
-            { 
+            {
 				test: /\.(js|jsx)$/, 
-				exclude: /node_modules/,
-				use: [
-					{
-                        loader: 'babel-loader',
-                        options: {
-                            presets: [
-                                ['env', { modules: false}]
-                            ]
-                        }
-                    }
-				]
+                exclude: /node_modules/,
+                use: 'babel-loader'
 			},
 			{
                 test: /\.css$/,
