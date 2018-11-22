@@ -2,12 +2,12 @@
     "plugins": ["transform-react-jsx"],
     "presets": [
         [ "env", {
-          "targets": {
-              "browsers": ["ie >=9"]
-          },
-          "modules": false,
-          "useBuiltIns": true,
-          "debug": true
+            "targets": {
+                "browsers": ["ie >=9"]
+            },
+            "modules": false,
+            "useBuiltIns": true,
+            "debug": true
         }]
     ]
 }

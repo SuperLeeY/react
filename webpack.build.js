@@ -2,7 +2,7 @@ const path = require('path');
 const glob = require('glob');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const Uglify = require('uglifyjs-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 function entries (globPath) {
@@ -45,7 +45,7 @@ module.exports = {
 	},
 	plugins: [
         new ExtractTextPlugin('/css/[name].css'),
-        new Uglify(),
+        new UglifyJSPlugin(),
         new CleanWebpackPlugin(['dist'])
     ],
     optimization: {
